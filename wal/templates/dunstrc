@@ -1,0 +1,57 @@
+[global]
+    # Font
+    font = JetBrainsMono Nerd Font 10
+
+    # Monitor: 0 = Main, mouse = Follow mouse
+    monitor = mouse
+    
+    # Geometry
+    # NEW SYNTAX: (horizontal, vertical)
+    origin = top-right
+    offset = (20, 50)
+    
+    # Size: (min_width, max_width)
+    width = (300, 300)
+    
+    # Height: (min_height, max_height)
+    # This was the bug! It needs a range now.
+    height = (0, 300)
+    
+    # Appearance
+    frame_width = 2
+    corner_radius = 10
+    transparency = 10
+    padding = 15
+    horizontal_padding = 15
+    text_icon_padding = 15
+    icon_position = left
+    min_icon_size = 48
+    max_icon_size = 48
+
+    # Progress Bar
+    progress_bar = true
+    progress_bar_height = 8
+    progress_bar_frame_width = 0
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+
+    # Separator
+    separator_height = 2
+
+[urgency_low]
+    background = "{background}E6"
+    foreground = "{foreground}"
+    frame_color = "{color2}"
+    timeout = 4
+
+[urgency_normal]
+    background = "{background}E6"
+    foreground = "{foreground}"
+    frame_color = "{color1}"
+    timeout = 6
+
+[urgency_critical]
+    background = "{background}E6"
+    foreground = "{foreground}"
+    frame_color = "{color5}"
+    timeout = 0

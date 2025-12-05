@@ -1,0 +1,35 @@
+* {{
+    background-image: none;
+    font-family: "JetBrainsMono Nerd Font", "Roboto", sans-serif;
+}}
+
+window {{
+    /* We use single braces for Pywal variables */
+    background-color: rgba({background.rgb}, 0.85);
+}}
+
+button {{
+    color: {foreground};
+    background-color: {color2};
+    border-style: solid;
+    border-width: 2px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}}
+
+button:focus, button:active, button:hover {{
+    background-color: {color4};
+    outline-style: none;
+}}
+
+#lock {{ background-image: image(url("/usr/share/wlogout/icons/lock.png")); }}
+#logout {{ background-image: image(url("/usr/share/wlogout/icons/logout.png")); }}
+#suspend {{ background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }}
+#hibernate {{ background-image: image(url("/usr/share/wlogout/icons/hibernate.png")); }}
+#shutdown {{ background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }}
+#reboot {{ background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }}

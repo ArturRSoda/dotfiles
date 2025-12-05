@@ -1,0 +1,32 @@
+window#osd {{
+    background-color: rgba({background.rgb}, 0.90);
+    border-radius: 99px;
+    border: 2px solid {color1};
+    padding: 12px;
+}}
+
+#container {{
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+}}
+
+trough {{
+    background-color: rgba({foreground.rgb}, 0.1);
+    border-radius: 99px;
+    min-height: 8px;
+    border: none;
+}}
+
+progress {{
+    background-color: {color1};
+    border-radius: 99px;
+    min-height: 8px;
+    border: none;
+    box-shadow: none;
+}}
+
+label, image {{
+    color: {foreground};
+    font-weight: bold;
+}}
