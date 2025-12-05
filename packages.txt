@@ -1,0 +1,1 @@
+hyprland waybar rofi kitty swappy dunst swayosd-git network-manager-applet starship zsh fastfetch pulsemixer grim slurp cliphist wl-clipboard
