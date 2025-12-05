@@ -5,13 +5,11 @@ sleep 1
 
 # 2. Define Vars
 DIR_MAIN="$HOME/Pictures/Wallpapers/Main"
-DIR_VERT="$HOME/Pictures/Wallpapers/Vertical"
 
 # 3. Pick Random
 WALL_MAIN=$(find "$DIR_MAIN" -type f | shuf -n 1)
-WALL_VERT=$(find "$DIR_VERT" -type f | shuf -n 1)
 
-if [ -z "$WALL_MAIN" ] || [ -z "$WALL_VERT" ]; then
+if [ -z "$WALL_MAIN" ]; then
     exit 1
 fi
 
@@ -21,9 +19,7 @@ fi
 # 5. Set Wallpaper
 hyprctl hyprpaper unload all
 hyprctl hyprpaper preload "$WALL_MAIN"
-#hyprctl hyprpaper preload "$WALL_VERT"
 hyprctl hyprpaper wallpaper "DP-3,$WALL_MAIN"
-#hyprctl hyprpaper wallpaper "HDMI-A-1,$WALL_VERT"
 hyprctl hyprpaper wallpaper "HDMI-A-1,$WALL_MAIN"
 
 # 1. Reload Hyprland (Refreshes borders)
