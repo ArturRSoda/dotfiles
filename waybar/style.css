@@ -40,6 +40,7 @@ window#waybar {
 
 /* --- MODULES (Islands) --- */
 /* We group these to give them all the same pill shape */
+#battery,
 #cpu,
 #memory,
 #temperature,
@@ -75,4 +76,41 @@ window#waybar {
     background-color: @color1; /* Red/Accent for power */
     color: @background;
     padding-right: 18px; /* Optical adjustment for the icon */
+}
+
+/* Normal Battery State */
+#battery {
+    background-color: @color2; /* Darker Grey/Color */
+    color: @foreground;
+}
+
+/* Charging */
+#battery.charging {
+    background-color: @color3; /* Greenish usually */
+    color: @background;
+}
+
+/* Low Battery (Warning < 30%) */
+#battery.warning {
+    background-color: @color5; /* Red/Orange */
+    color: @background;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Critical Battery (< 15%) */
+#battery.critical {
+    background-color: #ff0000; /* Force bright red */
+    color: white;
+}
+
+/* Define the blinking animation */
+@keyframes blink {
+    to {
+        background-color: @foreground;
+        color: @color5;
+    }
 }
