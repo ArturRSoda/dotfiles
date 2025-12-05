@@ -1,0 +1,81 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 0, // Zero spacing because we control it via CSS margins
+    // Load Modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "cpu",
+        "memory",
+        "temperature"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "tray",
+        "custom/power"
+    ],
+    // --- Module Configs ---
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": 5 // Always show 5 workspaces
+        }
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {usage}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input", // You might need to check this path later
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "clock": {
+        "format": " {:%H:%M   %d/%m}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "kitty --class audio_mixer -e pulsemixer",
+        "on-click-right": "pavucontrol" // Keep the old one on right-click just in case
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "모 Connected",
+        "format-disconnected": " Disconnected",
+        "tooltip-format": "{ifname} via {gwaddr}"
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "~/.config/hypr/scripts/power_menu.sh",
+        "tooltip": false
+    }
+}

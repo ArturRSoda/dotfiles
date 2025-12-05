@@ -1,0 +1,78 @@
+@import "../../.cache/wal/colors-waybar.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent; /* Essential for floating look */
+    color: @foreground;
+}
+
+/* --- WORKSPACES --- */
+#workspaces {
+    background-color: alpha(@background, 0.8);
+    border-radius: 15px;
+    margin: 5px;
+    padding: 5px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background-color: transparent;
+    color: @foreground;
+    border-radius: 10px;
+}
+
+#workspaces button.active {
+    background-color: @color1; /* Active workspace gets Accent Color */
+    color: @background;
+}
+
+#workspaces button:hover {
+    background-color: @color2;
+}
+
+/* --- MODULES (Islands) --- */
+/* We group these to give them all the same pill shape */
+#cpu,
+#memory,
+#temperature,
+#clock,
+#pulseaudio,
+#network,
+#tray,
+#custom-power {
+    background-color: alpha(@background, 0.8);
+    color: @foreground;
+    border-radius: 15px;
+    padding: 5px 15px;
+    margin: 5px 4px; /* Creates space between islands */
+}
+
+/* --- COLOR OVERRIDES (Optional: Make them colorful!) --- */
+/* If you want specific modules to always use specific Pywal colors */
+
+#clock {
+    background-color: @color4;
+    color: @background;
+}
+
+#cpu {
+    color: @color11;
+}
+
+#memory {
+    color: @color12;
+}
+
+#custom-power {
+    background-color: @color1; /* Red/Accent for power */
+    color: @background;
+    padding-right: 18px; /* Optical adjustment for the icon */
+}

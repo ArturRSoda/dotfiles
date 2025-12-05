@@ -1,0 +1,107 @@
+/* Import Pywal Colors */
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    show-icons: true;
+    display-drun: " ";
+    drun-display-format: "{name}";
+}
+
+/* GLOBAL RESET: Everything transparent by default */
+* {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/* 1. The Main Window (The only thing with color) */
+window {
+    width: 600px;
+    /* This handles the height automatically based on number of lines */
+    
+    /* The Single Background Color */
+    background-color: rgba(15, 15, 15, 0.95); /* Dark, semi-transparent glass */
+    
+    border: 2px;
+    border-color: @color1; /* Accent color border around the whole thing */
+    border-radius: 15px;
+    
+    padding: 20px; /* Inner spacing */
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 15px; /* Space between Search Bar and List */
+}
+
+/* 2. The Search Bar (High Visibility) */
+inputbar {
+    /* We give this a distinct background color so it's easy to see */
+    background-color: @color2; 
+    
+    children: [ prompt, entry ];
+    padding: 12px;
+    border-radius: 8px;
+    
+    /* Optional: Add a subtle border to the search bar too */
+    border: 1px;
+    border-color: @color1;
+}
+
+prompt {
+    text-color: @color1; /* Accent Icon */
+    font: "JetBrainsMono Nerd Font 18";
+    vertical-align: 0.5;
+    margin: 0px 10px 0px 0px;
+}
+
+entry {
+    text-color: @foreground; /* Bright text */
+    placeholder: "Search...";
+    placeholder-color: rgba(255, 255, 255, 0.3);
+    font: "JetBrainsMono Nerd Font Bold 12";
+    vertical-align: 0.5;
+}
+
+/* 3. The List */
+listview {
+    columns: 1;
+    lines: 8;      /* Show 8 items */
+    spacing: 4px;  /* Tiny space between items */
+    cycle: true;
+    scrollbar: false;
+}
+
+/* 4. The Items (Pure Text, No Blocks) */
+element {
+    orientation: horizontal;
+    padding: 8px 10px;
+    text-color: @foreground;
+    border-radius: 6px;
+}
+
+element-icon {
+    size: 24px;
+    margin: 0px 15px 0px 0px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+    font: "JetBrainsMono Nerd Font 12";
+    vertical-align: 0.5;
+}
+
+/* 5. The Active Selection (Text Highlight Only) */
+element selected {
+    background-color: transparent; /* NO BLOCKY BACKGROUND */
+    text-color: @color1;           /* Text turns Accent Color */
+    
+    /* Optional: A dot or line to mark selection? */
+    /* Let's keep it clean as you requested: just text change */
+}
+
+/* Handle alternating rows - ensure they stay transparent */
+element alternate.normal {
+    background-color: transparent;
+}

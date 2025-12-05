@@ -1,0 +1,63 @@
+/* Import Pywal Colors */
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    show-icons: false;
+    click-to-exit: true;
+}
+
+window {
+    /* Geometry */
+    width: 200px;          /* Fixed width is cleaner than percentage */
+    height: 280px;         /* Enough height for 5 items */
+    
+    /* Positioning */
+    location: northeast;   /* Anchor to top right */
+    anchor: northeast;
+    x-offset: -12px;       /* Distance from right edge */
+    y-offset: 45px;        /* Distance from top edge */
+
+    /* Style */
+    fullscreen: false;     /* CRITICAL: Do not take up whole screen */
+    background-color: @background;
+    border: 2px;
+    border-color: @color1; /* Use your accent color */
+    border-radius: 8px;
+}
+
+/* This is the container wrapper */
+mainbox {
+    background-color: transparent;
+    children: [ listview ];
+    padding: 5px;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 5;
+    spacing: 5px;
+    cycle: true;
+    scrollbar: false;
+    layout: vertical;
+}
+
+element {
+    background-color: transparent;
+    text-color: @foreground;
+    orientation: horizontal;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    font: "JetBrainsMono Nerd Font 12";
+    vertical-align: 0.5;
+}
+
+element selected {
+    background-color: @color1;
+    text-color: @background;
+}
