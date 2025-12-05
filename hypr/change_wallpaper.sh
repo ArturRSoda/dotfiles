@@ -19,8 +19,11 @@ fi
 # 5. Set Wallpaper
 hyprctl hyprpaper unload all
 hyprctl hyprpaper preload "$WALL_MAIN"
-hyprctl hyprpaper wallpaper "DP-3,$WALL_MAIN"
-hyprctl hyprpaper wallpaper "HDMI-A-1,$WALL_MAIN"
+#hyprctl hyprpaper wallpaper "DP-3,$WALL_MAIN"
+#hyprctl hyprpaper wallpaper "HDMI-A-1,$WALL_MAIN"
+for monitor in $(hyprctl monitors | grep "Monitor" | awk '{print $2}'); do
+    hyprctl hyprpaper wallpaper "$monitor,$WALL_MAIN"
+done
 
 # 1. Reload Hyprland (Refreshes borders)
 hyprctl reload
