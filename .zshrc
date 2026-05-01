@@ -148,7 +148,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # 2. PATH Exports (CRITICAL)
 # This enables Neovim
-export PATH="$PATH:/opt/nvim/"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin/"
 
 
 # This enables 'wal' and other pipx tools
